@@ -1,6 +1,7 @@
 ## 🌎Jardin-Automatiser🌎
 Projet sur un jardin automatiser !
-** En quoi sa consiste ? Mon but est de permettre à mon jardin d'être arrosé toute seul à partir de capteur d'humidité du sol. Il y aura plusieur parti puisque il y a plusieur type de plante dans mon jardin 🍅🥒🥕
+* En quoi sa consiste ? 
+* Mon but est de permettre à mon jardin d'être arrosé toute seul à partir de capteur d'humidité du sol. Il y aura plusieur parti puisque il y a plusieur type de plante dans mon jardin 🍅🥒🥕
 
 # Composante utilisé
 * Arduino uno
