@@ -3,14 +3,14 @@
  */
 int analogPinTomate = A0;
 int analogTomateValue;
-int limitTomate = 500;
+int limitTomate = 300;
 bool etatValveTomate = false;
 /*
  * FINE HERBE
  */
 int analogPinFineHerbe = A1;
 int analogFineHerbeValue;
-int limitFineHerbe = 450;
+int limitFineHerbe = 300;
 bool etatValveFineHerbe = false;
 
 void setup() {
@@ -32,14 +32,14 @@ void loop() {
   Serial.println(analogTomateValue);
   if (analogTomateValue<limitTomate) {
   digitalWrite(13, HIGH);
-  delay(1000);
-  etatValveTomate = true;
+  etatValveTomate = false;
   Serial.println("Le taux d'humidité des TOMATE est *HAUTE* donc pas besoin d'arroser !");
   }
   else {
   digitalWrite(13, LOW);
   Serial.println("Le taux d'humidité des TOMATE est *BAS*, la vanne ouvre !");
-  etatValveTomate = false;
+  delay(1000);
+  etatValveTomate = true;
   }
 
   /*
@@ -49,23 +49,23 @@ void loop() {
   Serial.println(analogFineHerbeValue);
   if (analogFineHerbeValue<limitFineHerbe) {
   digitalWrite(12, HIGH);
-  delay(1000);
-  etatValveFineHerbe = true;
+  etatValveFineHerbe = false;
   Serial.println("Le taux d'humidité des FINE HERBE est *HAUTE* donc pas besoin d'arroser !");
   }
   else {
   digitalWrite(12, LOW);
   Serial.println("Le taux d'humidité des FINE HERBE est *BAS*, la vanne ouvre !");
-  etatValveFineHerbe = false;
+  delay(1000);
+  etatValveFineHerbe = true;
   }
 
   if(etatValveTomate || etatValveFineHerbe){
-    digitalWrite(8, HIGH);
-    Serial.println("** La pompe Démarre **");
+    digitalWrite(8, LOW);
+    Serial.println("** La pompe Demarre **");
   }
   else{
-    digitalWrite(8, LOW);
-    Serial.println("** La pompe en Arrêt **");
+    digitalWrite(8, HIGH);
+    Serial.println("** La pompe en Arret **");
   }
   delay(2000);
   
